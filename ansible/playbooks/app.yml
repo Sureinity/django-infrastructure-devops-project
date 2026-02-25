@@ -1,0 +1,7 @@
+---
+- name: Configure app services
+  hosts: app
+  gather_facts: true
+  roles:
+    - docker_host
+    - django_stack

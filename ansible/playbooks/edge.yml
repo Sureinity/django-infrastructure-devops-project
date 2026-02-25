@@ -1,0 +1,7 @@
+---
+- name: Configure edge services
+  hosts: edge
+  gather_facts: true
+  roles:
+    - wireguard
+    - edge_stack

@@ -1,0 +1,4 @@
+---
+- import_playbook: base.yml
+- import_playbook: edge.yml
+- import_playbook: app.yml

@@ -1,0 +1,56 @@
+# OS and editor artifacts
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+terraform.tfvars
+terraform.tfvars.json
+*.tfvars
+*.tfvars.json
+!.tfvars.example
+!*.tfvars.example
+!.example.tfvars
+!*.example.tfvars
+
+# Ansible
+*.retry
+ansible/**/vault.yml
+ansible/**/vault.yaml
+
+# Secrets and local env files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Python and test caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.venv/
+venv/
+
+# Logs and local temp/cache data
+*.log
+tmp/
+.cache/
