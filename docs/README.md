@@ -22,6 +22,7 @@ This documentation follows the Diataxis framework.
 
 ## Indexes
 
+- How-to index: `docs/how-to-guides/README.md`
 - Reference index: `docs/reference/README.md`
 
 ## Starter Templates
