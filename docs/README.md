@@ -23,3 +23,10 @@ This documentation follows the Diataxis framework.
 ## Indexes
 
 - Reference index: `docs/reference/README.md`
+
+## Starter Templates
+
+- Tutorial template: `docs/tutorials/TEMPLATE.md`
+- How-to template: `docs/how-to-guides/TEMPLATE.md`
+- Reference template: `docs/reference/TEMPLATE.md`
+- Explanation template: `docs/explanation/TEMPLATE.md`
