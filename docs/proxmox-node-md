@@ -1,6 +1,7 @@
-# Proxmox node details
+# Proxmox Node Details
 
----
+This file is a legacy compatibility pointer.
 
-### Hardware
-- 
+Use the Diataxis reference document instead:
+
+- `docs/reference/proxmox-node-disk-layout.md`

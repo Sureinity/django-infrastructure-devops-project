@@ -91,6 +91,12 @@ Layout principles:
 - `ansible/inventories/*`: environment separation for host data and variables.
 - `ansible/roles`: reusable configuration roles across environments.
 
+## Documentation
+
+- Diataxis hub: `docs/README.md`
+- Reference index: `docs/reference/README.md`
+- Current node disk specification: `docs/reference/proxmox-node-disk-layout.md`
+
 ## Design Principles
 
 - Reproducibility: infrastructure and host configuration are code-defined.
