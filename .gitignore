@@ -54,3 +54,6 @@ venv/
 *.log
 tmp/
 .cache/
+
+# Miscellaneous
+Makefile
