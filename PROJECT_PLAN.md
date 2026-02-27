@@ -74,6 +74,10 @@ Out of scope:
   - [ ] Define user and group schema in Ansible inventory variables. (Done when: schema keys exist in env vars and pass lint)
   - [ ] Define secret-bearing identity data in Ansible Vault placeholders. (Done when: required vault variables are created without plaintext secrets)
 
+- [ ] Implement non-login service account model (Done when: service users are codified with non-interactive shell policy)
+  - [ ] Define `svc_*` account policy and ownership mapping in inventory schema. (Done when: service user definitions include role ownership and host scope)
+  - [ ] Enforce `/usr/sbin/nologin` shell for service users on managed hosts. (Done when: service account shell audit confirms non-login shells)
+
 - [ ] Enforce SSH hardening policy on managed hosts (Done when: root and password SSH authentication are disabled)
   - [ ] Set `PermitRootLogin no` and `PasswordAuthentication no` in managed SSH config. (Done when: config audit confirms both values)
   - [ ] Validate key-based login for expected admin and automation users. (Done when: login succeeds with key and fails with password)
@@ -85,6 +89,19 @@ Out of scope:
 - [ ] Configure Proxmox platform access baseline (Done when: `pve` realm admins use MFA and automation uses scoped API token)
   - [ ] Create or verify admin users in `pve` realm with MFA enabled. (Done when: human admin login requires MFA)
   - [ ] Create scoped API token for Terraform automation. (Done when: token can run required Terraform actions only)
+  - [ ] Validate token ACL boundaries and denied actions. (Done when: unauthorized API operations fail with permission errors)
+
+- [ ] Implement break-glass access policy (Done when: emergency path is disabled by default and temporary enable workflow is documented)
+  - [ ] Document temporary break-glass enable/disable procedure with approval requirement. (Done when: procedure exists in docs with explicit expiry step)
+  - [ ] Validate disabled-default state in host and Proxmox access settings. (Done when: no permanent break-glass account is active in steady state)
+
+- [ ] Implement identity lifecycle controls (Done when: onboarding, offboarding, and key revocation workflows are tracked and testable)
+  - [ ] Create onboarding task flow for operator account provisioning. (Done when: new operator can be onboarded through inventory + playbook execution path)
+  - [ ] Create offboarding task flow for account disable and key revocation. (Done when: deprovisioned user access is denied on validation check)
+
+- [ ] Publish identity schema contract and audit outputs (Done when: schema keys and periodic audit artifacts are defined and linked)
+  - [ ] Publish reference schema keys for identity objects (`identity_human_users`, `identity_service_users`, `identity_automation_user`, `identity_sudo_profiles`, `identity_ssh_policy`, `identity_rotation_policy`). (Done when: schema reference is available under `docs/reference/`)
+  - [ ] Define monthly identity audit output format for active users, keys, sudo profiles, and drift notes. (Done when: template/report format is documented and linked from plan)
 
 ### Staging Environment
 
@@ -126,6 +143,7 @@ Out of scope:
 | Proxmox API token rotation review | Every 180 days | - | - | Platform |
 | Backup restore drill | Every 30 days | - | - | Platform |
 | Access and sudo policy review | Every 30 days | - | - | Platform |
+| Identity onboarding/offboarding audit | Every 30 days | - | - | Platform |
 
 ## Risks and Blockers
 
