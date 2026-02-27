@@ -96,6 +96,7 @@ Layout principles:
 - Diataxis hub: `docs/README.md`
 - Reference index: `docs/reference/README.md`
 - Current node disk specification: `docs/reference/proxmox-node-disk-layout.md`
+- Project plan: `PROJECT_PLAN.md`
 
 ## Design Principles
 
