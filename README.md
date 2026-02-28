@@ -11,7 +11,8 @@ This README is intentionally architecture-first and overview-only. Detailed depl
 
 ## Current Infrastructure Constraints
 
-The current baseline is a single Debian server running one Proxmox node.
+The current baseline is a single server target running one Proxmox node.
+The target may be bare metal or a VM, but baseline design and operating assumptions are defined as bare metal unless explicitly stated otherwise.
 
 | Resource | Value |
 | --- | --- |
@@ -23,7 +24,7 @@ The current baseline is a single Debian server running one Proxmox node.
 | Machine | `q35` |
 | BIOS | `OVMF (UEFI)` |
 
-Design implication: this is production-structured but not true high availability, because the physical host is still a single point of failure.
+Design implication: this is production-structured but not true high availability, because the single underlying server target remains a single point of failure.
 
 ## Environment Strategy
 

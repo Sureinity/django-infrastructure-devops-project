@@ -10,12 +10,14 @@ Build a production-structured Proxmox lab with `staging` and `prod` environments
 
 In scope:
 - Proxmox node baseline and storage architecture
+- Single Proxmox node on a server target (bare metal baseline; VM-hosted deployment is allowed)
 - Terraform provisioning for `staging` and `prod`
 - Ansible-based server configuration and security baseline
 - Documentation in Diataxis format
 
 Out of scope:
 - Multi-node Proxmox HA cluster implementation
+- Nested-virtualization-specific tuning beyond baseline bare-metal assumptions
 - External identity provider integration
 - Full production SRE runbook depth in root README
 

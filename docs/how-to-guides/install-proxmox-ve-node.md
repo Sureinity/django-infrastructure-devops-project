@@ -7,6 +7,7 @@ Install Proxmox VE on the node using the Proxmox VE `9.1-1` ISO and apply the in
 ## Requirements
 
 - Physical or virtual server with three available disks.
+- Baseline procedure assumes bare-metal disk and controller behavior; if VM-hosted, map virtual disks equivalently.
 - Proxmox VE installer ISO: `https://enterprise.proxmox.com/iso/proxmox-ve_9.1-1.iso`.
 - Console access to the target node.
 - Disk layout target defined in `docs/reference/proxmox-node-disk-layout.md`.
