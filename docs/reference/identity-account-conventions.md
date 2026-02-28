@@ -41,6 +41,23 @@
 | Sudo delegation | Sudo access is role/profile based with explicit allowlists. | Managed Linux hosts |
 | API token scope | Tokens must be least-privilege and task-scoped. | Terraform/automation access to Proxmox API |
 
+## SSH Filesystem Permission Baseline
+
+| Path | Required Owner | Required Group | Mode | Applies To |
+| --- | --- | --- | --- | --- |
+| `/home/<user>` | `<user>` | primary user group | `0750` (or stricter) | Human and automation users |
+| `/home/<user>/.ssh` | `<user>` | primary user group | `0700` | Human and automation users |
+| `/home/<user>/.ssh/authorized_keys` | `<user>` | primary user group | `0600` | Human and automation users |
+| `/home/<user>/.ssh/config` (if present) | `<user>` | primary user group | `0600` | Human and automation users |
+| `/home/<user>/.ssh/id_*` private keys (if present) | `<user>` | primary user group | `0600` | Human and automation users |
+| `/home/<user>/.ssh/id_*.pub` public keys (if present) | `<user>` | primary user group | `0644` | Human and automation users |
+
+| Enforcement Rule | Requirement |
+| --- | --- |
+| SSH strict mode compatibility | Ownership and modes must satisfy `sshd` `StrictModes` checks. |
+| Group/world write prohibition | `.ssh` directory and key material must not be group- or world-writable. |
+| Service accounts | Service users (`svc_*`) use `/usr/sbin/nologin` and do not require interactive SSH key login unless explicitly approved by exception. |
+
 ## Identity Schema Keys
 
 | Key | Type | Required | Description |
