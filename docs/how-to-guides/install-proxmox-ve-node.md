@@ -46,3 +46,4 @@ Install Proxmox VE on the node using the Proxmox VE `9.1-1` ISO and apply the in
 | Wrong disk selected during install | Install target selection error | Reinstall and select the correct OS target disk before proceeding |
 | Post-install storage does not match expected baseline | Installer options differ from baseline | Recheck installer disk options and align with reference layout |
 | SSH login fails after initial setup | SSH service disabled, key path mismatch, or permission issue | Check `systemctl status ssh`, verify `authorized_keys` location, and correct `.ssh` ownership/permissions |
+| Node web UI and SSH are unreachable after boot | `vmbr0` bridge configured with wrong physical uplink interface name | Follow `docs/how-to-guides/recover-proxmox-network-after-bridge-port-mismatch.md` |
