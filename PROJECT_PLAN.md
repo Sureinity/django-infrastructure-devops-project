@@ -77,6 +77,12 @@ Out of scope:
   - [ ] Validate cloud-init metadata rendering for template VM IDs. (Done when: `qm cloudinit dump` returns expected `user`, `network`, and `meta` content)
   - [ ] Validate first-boot cloud-init application on a test clone. (Done when: cloned VM applies hostname, user, SSH key, and network config at first boot)
 
+- [ ] Configure Proxmox APT repository policy for lab mode (Done when: enterprise sources are disabled and no-subscription source is active on node)
+  - [ ] Disable `pve-enterprise` repository files on the node. (Done when: no active source file references `enterprise.proxmox.com`)
+  - [ ] Enable `pve-no-subscription` repository for Proxmox VE `9.x` (`trixie`). (Done when: active source file contains `pve-no-subscription`)
+  - [ ] If Ceph packages are required, enable Ceph no-subscription repository for `ceph-squid` on `trixie`. (Done when: active `ceph.sources` contains `URIs: http://download.proxmox.com/debian/ceph-squid` and `Components: no-subscription`)
+  - [ ] Validate package index refresh against intended sources. (Done when: `apt update` completes without enterprise authorization errors)
+
 - [ ] Enable backup workflow and off-node copy strategy (Done when: local backups are scheduled and off-node destination is defined)
   - [ ] Create nightly local backup schedule to `backup-local`. (Done when: backup job exists and next run is scheduled)
   - [ ] Define off-node destination policy and transfer path. (Done when: documented destination and transfer method exist)

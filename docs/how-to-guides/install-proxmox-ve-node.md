@@ -29,6 +29,7 @@ Install Proxmox VE on the node using the Proxmox VE `9.1-1` ISO and apply the in
 12. Create a non-root admin operator account and grant sudo access.
 13. Install the operator SSH public key in the admin account `authorized_keys`.
 14. Validate SSH key login from the management workstation and confirm sudo works.
+15. Configure package repositories for your subscription mode. If this lab node does not use an enterprise subscription, follow `docs/how-to-guides/configure-proxmox-no-subscription-repositories.md`.
 
 ## Verification
 
@@ -37,6 +38,7 @@ Install Proxmox VE on the node using the Proxmox VE `9.1-1` ISO and apply the in
 - Confirm additional node disks remain available for `vmdata` and `backup-local` provisioning.
 - Confirm remote SSH access succeeds to the non-root admin account using key authentication.
 - Confirm the admin account can run sudo successfully over SSH.
+- Confirm `apt update` succeeds against intended repository sources.
 
 ## Troubleshooting (Optional)
 
@@ -47,3 +49,4 @@ Install Proxmox VE on the node using the Proxmox VE `9.1-1` ISO and apply the in
 | Post-install storage does not match expected baseline | Installer options differ from baseline | Recheck installer disk options and align with reference layout |
 | SSH login fails after initial setup | SSH service disabled, key path mismatch, or permission issue | Check `systemctl status ssh`, verify `authorized_keys` location, and correct `.ssh` ownership/permissions |
 | Node web UI and SSH are unreachable after boot | `vmbr0` bridge configured with wrong physical uplink interface name | Follow `docs/how-to-guides/recover-proxmox-network-after-bridge-port-mismatch.md` |
+| `apt update` fails with enterprise repository authorization error | Node is using enterprise repo without active subscription | Follow `docs/how-to-guides/configure-proxmox-no-subscription-repositories.md` |
