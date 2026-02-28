@@ -54,11 +54,11 @@ Out of scope:
 
 ### Proxmox Node Baseline
 
-- [ ] Bootstrap initial SSH administrative access (Done when: non-root admin SSH key login works and sudo access is validated from management workstation)
-  - [ ] Enable and validate the node `ssh` service after first boot. (Done when: `systemctl status ssh` shows active state)
-  - [ ] Create non-root admin operator account and grant sudo group membership. (Done when: admin account can run `sudo -v` successfully)
-  - [ ] Install operator SSH public key and enforce correct `.ssh` file permissions. (Done when: key-auth login succeeds and permissions pass `sshd` checks)
-  - [ ] Verify remote SSH login path from management workstation. (Done when: admin account logs in remotely via key and can run privileged commands)
+- [x] Bootstrap initial SSH administrative access (Done when: non-root admin SSH key login works and sudo access is validated from management workstation)
+  - [x] Enable and validate the node `ssh` service after first boot. (Done when: `systemctl status ssh` shows active state)
+  - [x] Create non-root admin operator account and grant sudo group membership. (Done when: admin account can run `sudo -v` successfully)
+  - [x] Install operator SSH public key and enforce correct `.ssh` file permissions. (Done when: key-auth login succeeds and permissions pass `sshd` checks)
+  - [x] Verify remote SSH login path from management workstation. (Done when: admin account logs in remotely via key and can run privileged commands)
 
 - [ ] Provision `vmdata` storage on `sdb` (Done when: `pvesm status` reports active `vmdata` as `lvmthin`)
   - [ ] Create the `LVM-thin` pool for VM disk data on `sdb`. (Done when: thin pool exists and is visible via `lvs`)
@@ -77,11 +77,11 @@ Out of scope:
   - [ ] Validate cloud-init metadata rendering for template VM IDs. (Done when: `qm cloudinit dump` returns expected `user`, `network`, and `meta` content)
   - [ ] Validate first-boot cloud-init application on a test clone. (Done when: cloned VM applies hostname, user, SSH key, and network config at first boot)
 
-- [ ] Configure Proxmox APT repository policy for lab mode (Done when: enterprise sources are disabled and no-subscription source is active on node)
-  - [ ] Disable `pve-enterprise` repository files on the node. (Done when: no active source file references `enterprise.proxmox.com`)
-  - [ ] Enable `pve-no-subscription` repository for Proxmox VE `9.x` (`trixie`). (Done when: active source file contains `pve-no-subscription`)
-  - [ ] If Ceph packages are required, enable Ceph no-subscription repository for `ceph-squid` on `trixie`. (Done when: active `ceph.sources` contains `URIs: http://download.proxmox.com/debian/ceph-squid` and `Components: no-subscription`)
-  - [ ] Validate package index refresh against intended sources. (Done when: `apt update` completes without enterprise authorization errors)
+- [x] Configure Proxmox APT repository policy for lab mode (Done when: enterprise sources are disabled and no-subscription source is active on node)
+  - [x] Disable `pve-enterprise` repository files on the node. (Done when: no active source file references `enterprise.proxmox.com`)
+  - [x] Enable `pve-no-subscription` repository for Proxmox VE `9.x` (`trixie`). (Done when: active source file contains `pve-no-subscription`)
+  - [x] If Ceph packages are required, enable Ceph no-subscription repository for `ceph-squid` on `trixie`. (Done when: active `ceph.sources` contains `URIs: http://download.proxmox.com/debian/ceph-squid` and `Components: no-subscription`) [N/A for current node scope]
+  - [x] Validate package index refresh against intended sources. (Done when: `apt update` completes without enterprise authorization errors)
 
 - [ ] Enable backup workflow and off-node copy strategy (Done when: local backups are scheduled and off-node destination is defined)
   - [ ] Create nightly local backup schedule to `backup-local`. (Done when: backup job exists and next run is scheduled)
@@ -177,6 +177,7 @@ Out of scope:
 - 2026-02-27: Use `PROJECT_PLAN.md` as the canonical execution tracking document.
 - 2026-02-27: Keep Diataxis docs intent-pure and link task details from this plan.
 - 2026-02-27: Standardize task granularity to 30-90 minute sub-tasks with inline completion criteria.
+- 2026-02-28: Completed manual node bootstrap on server at 11:27:42 PM PST (no-subscription repositories, `apt update`/`apt upgrade -y`, `sudo` and `nvim` install, `op_ghlen` sudo user, SSH key login with correct `.ssh` permissions). Ansible codification remains pending.
 
 ## Next Actions
 
