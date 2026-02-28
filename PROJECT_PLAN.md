@@ -54,6 +54,12 @@ Out of scope:
 
 ### Proxmox Node Baseline
 
+- [ ] Bootstrap initial SSH administrative access (Done when: non-root admin SSH key login works and sudo access is validated from management workstation)
+  - [ ] Enable and validate the node `ssh` service after first boot. (Done when: `systemctl status ssh` shows active state)
+  - [ ] Create non-root admin operator account and grant sudo group membership. (Done when: admin account can run `sudo -v` successfully)
+  - [ ] Install operator SSH public key and enforce correct `.ssh` file permissions. (Done when: key-auth login succeeds and permissions pass `sshd` checks)
+  - [ ] Verify remote SSH login path from management workstation. (Done when: admin account logs in remotely via key and can run privileged commands)
+
 - [ ] Provision `vmdata` storage on `sdb` (Done when: `pvesm status` reports active `vmdata` as `lvmthin`)
   - [ ] Create the `LVM-thin` pool for VM disk data on `sdb`. (Done when: thin pool exists and is visible via `lvs`)
   - [ ] Register `vmdata` in Proxmox storage config with `images,rootdir`. (Done when: storage content types match target policy)
