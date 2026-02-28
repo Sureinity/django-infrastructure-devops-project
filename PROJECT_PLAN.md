@@ -64,6 +64,11 @@ Out of scope:
   - [ ] Restrict `local` storage content to `iso,vztmpl,snippets`. (Done when: `local` no longer allows VM disk content)
   - [ ] Confirm VM disk placement defaults to `vmdata` for new VMs. (Done when: test VM disk is created on `vmdata`)
 
+- [ ] Configure Proxmox node cloud-init prerequisites (Done when: node-level cloud-init storage and metadata workflows are validated)
+  - [ ] Verify snippet-capable storage path for cloud-init custom data on node. (Done when: snippet file can be created and referenced from Proxmox storage config)
+  - [ ] Validate cloud-init metadata rendering for template VM IDs. (Done when: `qm cloudinit dump` returns expected `user`, `network`, and `meta` content)
+  - [ ] Validate first-boot cloud-init application on a test clone. (Done when: cloned VM applies hostname, user, SSH key, and network config at first boot)
+
 - [ ] Enable backup workflow and off-node copy strategy (Done when: local backups are scheduled and off-node destination is defined)
   - [ ] Create nightly local backup schedule to `backup-local`. (Done when: backup job exists and next run is scheduled)
   - [ ] Define off-node destination policy and transfer path. (Done when: documented destination and transfer method exist)
