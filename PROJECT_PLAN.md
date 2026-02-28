@@ -90,6 +90,8 @@ Out of scope:
 ### Security and Identity
 
 - [ ] Implement Linux identity baseline for operators and automation (Done when: named operator model and `ansible` automation user are codified)
+  - [x] Publish identity naming convention for human (`op_*`), automation (`auto_*`), service (`svc_*`), and break-glass (`bg_admin`) accounts. (Done when: `docs/reference/identity-account-conventions.md` exists and is indexed)
+  - [x] Define shared-account prohibition and `root@pam` emergency-only policy in reference documentation. (Done when: identity reference contains explicit control rules for both)
   - [ ] Define user and group schema in Ansible inventory variables. (Done when: schema keys exist in env vars and pass lint)
   - [ ] Define secret-bearing identity data in Ansible Vault placeholders. (Done when: required vault variables are created without plaintext secrets)
 
@@ -119,7 +121,7 @@ Out of scope:
   - [ ] Create offboarding task flow for account disable and key revocation. (Done when: deprovisioned user access is denied on validation check)
 
 - [ ] Publish identity schema contract and audit outputs (Done when: schema keys and periodic audit artifacts are defined and linked)
-  - [ ] Publish reference schema keys for identity objects (`identity_human_users`, `identity_service_users`, `identity_automation_user`, `identity_sudo_profiles`, `identity_ssh_policy`, `identity_rotation_policy`). (Done when: schema reference is available under `docs/reference/`)
+  - [x] Publish reference schema keys for identity objects (`identity_human_users`, `identity_service_users`, `identity_automation_user`, `identity_sudo_profiles`, `identity_ssh_policy`, `identity_rotation_policy`). (Done when: schema reference is available under `docs/reference/`)
   - [ ] Define monthly identity audit output format for active users, keys, sudo profiles, and drift notes. (Done when: template/report format is documented and linked from plan)
 
 ### Staging Environment
