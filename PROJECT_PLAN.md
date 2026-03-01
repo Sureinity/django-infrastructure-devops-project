@@ -92,6 +92,7 @@ Out of scope:
 - [ ] Implement Linux identity baseline for operators and automation (Done when: named operator model and `ansible` automation user are codified)
   - [x] Publish identity naming convention for human (`op_*`), automation (`auto_*`), service (`svc_*`), and break-glass (`bg_admin`) accounts. (Done when: `docs/reference/identity-account-conventions.md` exists and is indexed)
   - [x] Define shared-account prohibition and `root@pam` emergency-only policy in reference documentation. (Done when: identity reference contains explicit control rules for both)
+  - [x] Create manual `ansible` automation user bootstrap on node and validate key-auth SSH access. (Done when: user exists with home directory, `.ssh` ownership/modes are correct, and key-based login succeeds)
   - [ ] Define user and group schema in Ansible inventory variables. (Done when: schema keys exist in env vars and pass lint)
   - [ ] Define secret-bearing identity data in Ansible Vault placeholders. (Done when: required vault variables are created without plaintext secrets)
 
@@ -178,6 +179,7 @@ Out of scope:
 - 2026-02-27: Keep Diataxis docs intent-pure and link task details from this plan.
 - 2026-02-27: Standardize task granularity to 30-90 minute sub-tasks with inline completion criteria.
 - 2026-02-28: Completed manual node bootstrap on server at 11:27:42 PM PST (no-subscription repositories, `apt update`/`apt upgrade -y`, `sudo` and `nvim` install, `op_ghlen` sudo user, SSH key login with correct `.ssh` permissions). Ansible codification remains pending.
+- 2026-03-01: Manually created `ansible` automation user (`-c "Ansible Automation"`) with home directory, SSH key setup, and verified key-based SSH login success. Alignment to codified identity naming and Ansible-managed state remains pending.
 
 ## Next Actions
 
